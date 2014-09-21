@@ -119,8 +119,8 @@ public class BidirectionalSwipeRefreshLayout extends CustomSwipeRefreshLayout {
         }
     }
 
-	@Override
-	public boolean onInterceptTouchEvent(MotionEvent ev) {
+    @Override
+    public boolean onInterceptTouchEvent(MotionEvent ev) {
         ensureTarget();
 
         final int action = MotionEventCompat.getActionMasked(ev);
@@ -159,15 +159,15 @@ public class BidirectionalSwipeRefreshLayout extends CustomSwipeRefreshLayout {
                 final float y = MotionEventCompat.getY(ev, pointerIndex);
                 final float yDiff = y - mInitialMotionY;
                 if (!canScrollUp) {
-                	if (yDiff > mTouchSlop) {
+                    if (yDiff > mTouchSlop) {
                         mLastMotionY = y;
                         mIsBeingDragged = true;
-                	}
+                    }
                 } else if (!canScrollDown) {
-                	if (yDiff < -mTouchSlop) {
+                    if (yDiff < -mTouchSlop) {
                         mLastMotionY = y;
                         mIsBeingDragged = true;
-                	}
+                    }
                 }
                 break;
 
@@ -184,10 +184,10 @@ public class BidirectionalSwipeRefreshLayout extends CustomSwipeRefreshLayout {
         }
 
         return mIsBeingDragged;
-	}
+    }
 
-	@Override
-	public boolean onTouchEvent(MotionEvent ev) {
+    @Override
+    public boolean onTouchEvent(MotionEvent ev) {
         final int action = MotionEventCompat.getActionMasked(ev);
 
         if (mReturningToStart && action == MotionEvent.ACTION_DOWN) {
@@ -232,7 +232,7 @@ public class BidirectionalSwipeRefreshLayout extends CustomSwipeRefreshLayout {
                 }
 
                 if (mIsBeingDragged) {
-                	if (!canScrollUp) {
+                    if (!canScrollUp) {
                         // User velocity passed min velocity; trigger a refresh
                         if (yDiff > mDistanceToTriggerSync) {
                             // User movement passed distance; trigger a refresh
@@ -252,7 +252,7 @@ public class BidirectionalSwipeRefreshLayout extends CustomSwipeRefreshLayout {
                                 updatePositionTimeout();
                             }
                         }
-                	} else if (!canScrollDown) {
+                    } else if (!canScrollDown) {
                         // User velocity passed min velocity; trigger a refresh
                         if (yDiff < -mDistanceToTriggerSync) {
                             // User movement passed distance; trigger a refresh
@@ -272,7 +272,7 @@ public class BidirectionalSwipeRefreshLayout extends CustomSwipeRefreshLayout {
                                 updatePositionTimeout();
                             }
                         }
-                	}
+                    }
                     mLastMotionY = y;
                 }
                 break;
@@ -297,9 +297,9 @@ public class BidirectionalSwipeRefreshLayout extends CustomSwipeRefreshLayout {
         }
 
         return true;
-	}
+    }
 
-	private void updateContentOffsetTopWhenPullUp(int targetTop) {
+    private void updateContentOffsetTopWhenPullUp(int targetTop) {
         final int currentTop = mTarget.getTop();
         if (targetTop < -mDistanceToTriggerSync) {
             targetTop = (int) -mDistanceToTriggerSync;
@@ -307,5 +307,5 @@ public class BidirectionalSwipeRefreshLayout extends CustomSwipeRefreshLayout {
             targetTop = 0;
         }
         setTargetOffsetTopAndBottom(targetTop - currentTop);
-	}
+    }
 }
