@@ -13,13 +13,33 @@
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
         <activity
-            android:name="SampleActivity"
-            android:label="@string/app_name" >
+            android:name=".LauncherActivity"
+            android:label="BdSwipeRefreshLayout Samples" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+        <activity
+            android:name=".SwipeRefreshListActivity"
+            android:label="BdSRL ListView" >
+        </activity>
+        <activity
+            android:name=".SwipeRefreshExpandableListActivity"
+            android:label="BdSRL ExpandableListView" >
+        </activity>
+        <activity
+            android:name=".SwipeRefreshGridActivity"
+            android:label="BdSRL GridView" >
+        </activity>
+        <activity
+            android:name=".SwipeRefreshWebViewActivity"
+            android:label="BdSRL WebView" >
+        </activity>
+        <activity
+            android:name=".SwipeRefreshScrollViewActivity"
+            android:label="BdSRL ScrollView" >
         </activity>
     </application>
 

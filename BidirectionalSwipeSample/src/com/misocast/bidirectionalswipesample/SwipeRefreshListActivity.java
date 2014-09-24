@@ -10,14 +10,14 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.widget.ArrayAdapter;
 
-public class SampleActivity extends ListActivity {
+public class SwipeRefreshListActivity extends ListActivity {
 
 	private ArrayList<String> myStringArray;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.main);
+		setContentView(R.layout.activity_srl_list);
 
 		myStringArray = new ArrayList<String>();
 		for(int i = 0; i < 20; i++) {
@@ -27,7 +27,7 @@ public class SampleActivity extends ListActivity {
 		ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, myStringArray);
 		setListAdapter(adapter);
 
-		final BidirectionalSwipeRefreshLayout swipeRefreshLayout = (BidirectionalSwipeRefreshLayout) this.findViewById(R.id.swipe_refreshs);
+		final BidirectionalSwipeRefreshLayout swipeRefreshLayout = (BidirectionalSwipeRefreshLayout) this.findViewById(R.id.swipe_refresh);
 		swipeRefreshLayout.setColorSchemeColors(Color.GREEN, Color.RED, Color.BLUE, Color.YELLOW);
 		swipeRefreshLayout.setOnRefreshListener(new BidirectionalSwipeRefreshLayout.OnRefreshListener() {
 			@Override
